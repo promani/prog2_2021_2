@@ -6,16 +6,18 @@ let autos = {
                 modelo: "scirocco",
                 anio: 2016,
                 color: "black",
+                foto: "https://i.blogs.es/96c8d6/vw-scirocco-by-oettinger-1/1366_2000.jpg",
                 describirse: function(){
                     return `Hola soy el auto marca ${autos.lista[0].marca}, modelo ${autos.lista[0].modelo}, fabricado en el año ${autos.lista[0].anio} y de color ${autos.lista[0].color}`
                 }
             },
             {
                 patente: "AB124EZ",
-                marca: "volkswagen",
-                modelo: "scirocco",
+                marca: "ferrari",
+                modelo: "F150",
                 anio: 2020,
                 color: "red",
+                foto: "/images/ferrari.jpg",
                 describirse: function(){
                     return `Hola soy el auto marca ${autos.lista[1].marca}, modelo ${autos.lista[1].modelo}, fabricado en el año ${autos.lista[1].anio} y de color ${autos.lista[1].color}`
                 }                
@@ -25,27 +27,30 @@ let autos = {
                 marca: "volkswagen",
                 modelo: "scirocco",
                 anio: 2015,
-                color: "white",
+                color: "teal",
+                foto: "https://i.blogs.es/96c8d6/vw-scirocco-by-oettinger-1/1366_2000.jpg",
                 describirse: function(){
                     return `Hola soy el auto marca ${autos.lista[2].marca}, modelo ${autos.lista[2].modelo}, fabricado en el año ${autos.lista[2].anio} y de color ${autos.lista[2].color}`
                 }                
             },
             {
                 patente: "AB323EZ",
-                marca: "volkswagen",
+                marca: "Ford",
                 modelo: "golf",
                 anio: 2016,
-                color: "white",
+                color: "orange",
+                foto: "https://i.blogs.es/96c8d6/vw-scirocco-by-oettinger-1/1366_2000.jpg",
                 describirse: function(){
                     return `Hola soy el auto marca ${autos.lista[3].marca}, modelo ${autos.lista[3].modelo}, fabricado en el año ${autos.lista[3].anio} y de color ${autos.lista[3].color}`
                 }
             },
             {
                 patente: "AB523eZ",
-                marca: "volkswagen",
+                marca: "BMW",
                 modelo: "golf",
                 anio: 2016,
-                color: "white",
+                color: "red",
+                foto: "https://i.blogs.es/96c8d6/vw-scirocco-by-oettinger-1/1366_2000.jpg",
                 describirse: function(){
                     return `Hola soy el auto marca ${autos.lista[3].marca}, modelo ${autos.lista[3].modelo}, fabricado en el año ${autos.lista[3].anio} y de color ${autos.lista[3].color}`
                 }
