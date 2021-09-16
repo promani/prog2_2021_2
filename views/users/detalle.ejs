@@ -3,20 +3,23 @@
 <main class="flex-shrink-0">
 <div class="container">
   <h1><%= user.username %></h1>
-
   <hr>
-
-  <% posts.forEach(post => { %>
-    <div class="card mb-3" style="width: 25rem;">
-      <img src="<%= post.imagen %>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p><a href="/users/detalle/<%= user.username %>"><%= post.user.firstName %></a></p>
-        <p><%= post.createdAt %></p>
-        <p><%= post.contenido %></p>
-        <a href="/posts/<%= post.id %>" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  <% }) %>
+  <div class="row">
+      <% posts.forEach(post => { %>
+        <div class="col-3">
+          <div class="card mb-3">
+            <img src="<%= post.imagen %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p><a href="/users/detalle/<%= user.username %>"><%= post.user.firstName %></a></p>
+              <p><%= post.createdAt %></p>
+              <p><%= post.contenido %></p>
+              <a href="/posts/<%= post.id %>" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+  </div>
+  
 </div>
 </main>
 <%- include('../partials/footer') %> 

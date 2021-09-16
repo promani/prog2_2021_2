@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+.feed {
+  width: auto;
+  margin: 2rem auto;
+}
+
+.img-cover {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}

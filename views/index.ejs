@@ -1,19 +1,26 @@
 <%- include('./partials/head') %> 
 <!-- Begin page content -->
-<main class="flex-shrink-0">
-<div class="container">
+<main class="feed">
   <% posts.forEach(post => { %>
-    <div class="card mb-3" style="width: 25rem;">
-      <img src="<%= post.imagen %>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p><a href="/users/detalle/<%= post.user.username %>"><%= post.user.firstName %></a></p>
-        <p><%= post.createdAt %></p>
-        <p><%= post.contenido %></p>
-        <a href="/posts/<%= post.id %>" class="btn btn-primary">Go somewhere</a>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<%= post.imagen %>" class=" img-cover rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p><a href="/users/detalle/<%= post.user.username %>"><%= post.user.firstName %></a></p>
+            <p><%= post.createdAt %></p>
+            <p><%= post.contenido %></p>
+            <p><b>Comentarios:</b></p>
+              <% post.comentarios.forEach(comentario => { %>
+                <i><%= comentario.user.username %></i> - <%= comentario.contenido %><br>
+              <% }) %>
+          </div>
+        </div>
       </div>
     </div>
   <% }) %>
-</div>
 </main>
 <%- include('./partials/footer') %> 
 

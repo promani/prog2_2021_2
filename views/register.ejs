@@ -1,0 +1,26 @@
+<%- include('./partials/head') %> 
+<!-- Begin page content -->
+<main class="feed">
+  <form action="/" method="GET">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label">Nombre de usuario</label>
+      <input type="text" class="form-control" name="username" id="username">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" id="password">
+    </div>
+    <div class="mb-3">
+      <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</main>
+<%- include('./partials/footer') %> 
+

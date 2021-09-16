@@ -1,3 +1,5 @@
+let comments = require('./comments');
+
 let posts = {
     lista: [
             {
@@ -8,10 +10,7 @@ let posts = {
                 user_id: 1,
                 user: { id: 1, username: 'promani', firstName: 'Pehuen' },
                 likes: 15,
-                comentarios: [
-                    { contenido: 'ahh tranca vos eh..', fecha: '15 de febrero', likes: 0 },
-                    { contenido: 'que linda pileta', fecha: '15 de febrero', likes: 2 }
-                ],
+                comentarios: comments.findByPost(1),
             },
             {
                 id: 2,
@@ -21,10 +20,7 @@ let posts = {
                 user_id: 1,
                 user: { id: 1, username: 'promani', firstName: 'Pehuen' },
                 likes: 15,
-                comentarios: [
-                    { contenido: 'ahh tranca vos eh..', fecha: '15 de febrero', likes: 0 },
-                    { contenido: 'que linda pileta', fecha: '15 de febrero', likes: 2 }
-                ],
+                comentarios: comments.findByPost(1),
             },
             {
                 id: 3,
@@ -34,10 +30,7 @@ let posts = {
                 user_id: 1,
                 user: { id: 1, username: 'promani', firstName: 'Pehuen' },
                 likes: 15,
-                comentarios: [
-                    { contenido: 'ahh tranca vos eh..', fecha: '15 de febrero', likes: 0 },
-                    { contenido: 'que linda pileta', fecha: '15 de febrero', likes: 2 }
-                ],
+                comentarios: comments.findByPost(1),
             },
             {
                 id: 4,
@@ -47,10 +40,7 @@ let posts = {
                 user_id: 1,
                 user: { id: 1, username: 'promani', firstName: 'Pehuen' },
                 likes: 15,
-                comentarios: [
-                    { contenido: 'ahh tranca vos eh..', fecha: '15 de febrero', likes: 0 },
-                    { contenido: 'que linda pileta', fecha: '15 de febrero', likes: 2 }
-                ],
+                comentarios: comments.findByPost(1),
             },
           ],
     find: function (id) {

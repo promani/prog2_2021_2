@@ -1,5 +1,3 @@
-
-
 let users = {
     list: [
         {
