@@ -1,8 +1,8 @@
-const autos = require('../modules/autos');
+const posts = require('../modules/posts');
 
 const controller = {
     index: function(req, res, next) {
-        res.render('index', { title: 'Express', autos: autos.lista });
+        res.render('index', { posts: posts.lista });
       }
 }
 

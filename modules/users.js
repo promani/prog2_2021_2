@@ -3,6 +3,7 @@
 let users = {
     list: [
         {
+            id: 1,
             username: 'promani',
             name: 'Pehuen',
             surname: 'Romani',
@@ -10,6 +11,7 @@ let users = {
             city: 'Longchamps'
         },
         {
+            id: 2,
             username: 'fromani',
             name: 'Facundo',
             surname: 'Romani',
@@ -18,9 +20,9 @@ let users = {
         }
     ],
     findByUsername: function (username) {
-        for (let index = 0; index < this.list.length; index++) {
-            if (this.list[index].username == username) {
-                return this.list[index];
+        for (let index = 0; index < users.list.length; index++) {
+            if (users.list[index].username == username) {
+                return users.list[index];
             }
         }
     }
