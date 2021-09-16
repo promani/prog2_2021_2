@@ -20,7 +20,7 @@ let posts = {
                 user_id: 1,
                 user: { id: 1, username: 'promani', firstName: 'Pehuen' },
                 likes: 15,
-                comentarios: comments.findByPost(1),
+                comentarios: comments.findByPost(2),
             },
             {
                 id: 3,
@@ -30,7 +30,7 @@ let posts = {
                 user_id: 1,
                 user: { id: 1, username: 'promani', firstName: 'Pehuen' },
                 likes: 15,
-                comentarios: comments.findByPost(1),
+                comentarios: comments.findByPost(3),
             },
             {
                 id: 4,
@@ -40,7 +40,7 @@ let posts = {
                 user_id: 1,
                 user: { id: 1, username: 'promani', firstName: 'Pehuen' },
                 likes: 15,
-                comentarios: comments.findByPost(1),
+                comentarios: comments.findByPost(4),
             },
           ],
     find: function (id) {

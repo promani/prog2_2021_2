@@ -1,18 +1,23 @@
-<%- include('../partials/head') %> 
+<%- include('../partials/head-logueado') %> 
 <!-- Begin page content -->
 <main class="flex-shrink-0">
 <div class="container">
   <h1 class="mt-5">Detalle de post</h1>
-  <div class="card mb-3" style="max-width: 1024px;">
+  <hr>
+  <div class="card mb-3">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-6">
         <img src="<%= post.imagen %>" class="img-fluid rounded-start" alt="...">
       </div>
-      <div class="col-md-8">
+      <div class="col-6">
         <div class="card-body">
           <p><%= post.user.firstName %></p>
           <p><%= post.createdAt %></p>
           <p><%= post.contenido %></p>
+          <p><b>Comentarios:</b></p>
+              <% post.comentarios.forEach(comentario => { %>
+                <i><a href="/users/detalle/<%= comentario.user.username %>"><%= comentario.user.username %></i></a> - <%= comentario.contenido %><br>
+              <% }) %>
         </div>
       </div>
     </div>

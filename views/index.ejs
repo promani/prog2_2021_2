@@ -1,11 +1,23 @@
 <%- include('./partials/head') %> 
 <!-- Begin page content -->
 <main class="feed">
+  <form action='/search'>
+    <div class="row">
+      <div class="col-10">
+        <div class="mb-3">
+          <input type="text" class="form-control" name="criteria" id="criteria" placeholder="Buscar">
+        </div>
+      </div>
+      <div class="col-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
   <% posts.forEach(post => { %>
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
-          <img src="<%= post.imagen %>" class=" img-cover rounded-start" alt="...">
+          <a href="/posts/<%= post.id %>"><img src="<%= post.imagen %>" class="img-cover rounded-start" alt="..."></a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -14,7 +26,7 @@
             <p><%= post.contenido %></p>
             <p><b>Comentarios:</b></p>
               <% post.comentarios.forEach(comentario => { %>
-                <i><%= comentario.user.username %></i> - <%= comentario.contenido %><br>
+                <i><a href="/users/detalle/<%= comentario.user.username %>"><%= comentario.user.username %></i></a> - <%= comentario.contenido %><br>
               <% }) %>
           </div>
         </div>

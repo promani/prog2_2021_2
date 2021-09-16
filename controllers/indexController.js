@@ -9,7 +9,10 @@ const controller = {
     },
     register: function(req, res, next) {
       res.render('register');
-    }
+    },
+    search: function(req, res, next) {
+      res.render('search', { criteria: req.query.criteria });
+    },
 }
 
 module.exports = controller;
