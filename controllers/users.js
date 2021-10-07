@@ -1,10 +1,9 @@
-let users = require('../modules/users');
-let postsModule = require('../modules/posts');
+const db = require('../database/models');
 
 let controller = {
-    detalle: function(req, res) {
-      const user = users.findByUsername(req.params.username);
-      const posts = postsModule.findByUser(user.id);
+    detalle: async function(req, res) {
+      const user = await db.User.findByPk(req.params.username);
+      const posts = await db.Post.findAll({where: {user_id: req.params.username}});
 
       res.render('users/detalle', { user, posts });
     },

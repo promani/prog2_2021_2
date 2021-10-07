@@ -8,10 +8,9 @@
       <% posts.forEach(post => { %>
         <div class="col-3">
           <div class="card mb-3">
-            <img src="<%= post.imagen %>" class="card-img-top" alt="...">
+            <img src="<%= post.image %>" class="card-img-top" alt="...">
             <div class="card-body">
-              <p><a href="/users/detalle/<%= user.username %>"><%= post.user.firstName %></a></p>
-              <p><%= post.createdAt %></p>
+              <p><a href="/users/detalle/<%= user.id %>"><%= user.username %></a></p>
               <p><%= post.contenido %></p>
               <a href="/posts/<%= post.id %>" class="btn btn-primary">Go somewhere</a>
             </div>

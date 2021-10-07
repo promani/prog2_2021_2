@@ -17,17 +17,13 @@
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="/posts/<%= post.id %>"><img src="<%= post.imagen %>" class="img-cover rounded-start" alt="..."></a>
+          <a href="/posts/<%= post.id %>"><img src="<%= post.image %>" class="img-cover rounded-start" alt="..."></a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <p><a href="/users/detalle/<%= post.user.username %>"><%= post.user.firstName %></a></p>
-            <p><%= post.createdAt %></p>
-            <p><%= post.contenido %></p>
-            <p><b>Comentarios:</b></p>
-              <% post.comentarios.forEach(comentario => { %>
-                <i><a href="/users/detalle/<%= comentario.user.username %>"><%= comentario.user.username %></i></a> - <%= comentario.contenido %><br>
-              <% }) %>
+            <p><a href="/users/detalle/<%= post.user_id %>"><%= post.user_id %></a></p>
+            <p></p>
+            <p><%= post.content %></p>
           </div>
         </div>
       </div>

@@ -1,8 +1,14 @@
-const posts = require('../modules/posts');
+const db = require('../database/models');
 
 const controller = {
     index: function(req, res, next) {
-        res.render('index', { posts: posts.lista });
+      db.Post.findAll()
+        .then((posts) => {
+          res.render('index', { posts });
+        })
+        .catch((error) => {
+          res.send(error)
+        })
     },
     login: function(req, res, next) {
       res.render('login');

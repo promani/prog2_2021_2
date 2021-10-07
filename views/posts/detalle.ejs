@@ -7,16 +7,14 @@
   <div class="card mb-3">
     <div class="row g-0">
       <div class="col-6">
-        <img src="<%= post.imagen %>" class="img-fluid rounded-start" alt="...">
+        <img src="<%= post.image %>" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-6">
         <div class="card-body">
-          <p><%= post.user.firstName %></p>
-          <p><%= post.createdAt %></p>
-          <p><%= post.contenido %></p>
+          <p><%= post.content %></p>
           <p><b>Comentarios:</b></p>
-              <% post.comentarios.forEach(comentario => { %>
-                <i><a href="/users/detalle/<%= comentario.user.username %>"><%= comentario.user.username %></i></a> - <%= comentario.contenido %><br>
+              <% comments.forEach(comment => { %>
+                <i><a href="/users/detalle/<%= comment.user_id %>"><%= comment.user_id %></i></a> - <%= comment.content %><br>
               <% }) %>
         </div>
       </div>
