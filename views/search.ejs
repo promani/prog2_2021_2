@@ -13,9 +13,28 @@
       </div>
     </div>
   </form>
-  <div class="alert alert-danger" role="alert">
-    Lo sentimos, no hemos encontrado resultados para <%= criteria %> .
-  </div>
+  <% if (posts.length == 0) { %>
+    <div class="alert alert-danger" role="alert">
+      Lo sentimos, no hemos encontrado resultados para <%= criteria %> .
+    </div>
+  <% } else { %>
+    <% posts.forEach(post => { %>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <a href="/posts/<%= post.id %>"><img src="<%= post.image %>" class="img-cover rounded-start" alt="..."></a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p><a href="/users/detalle/<%= post.user_id %>"><%= post.user_id %></a></p>
+              <p></p>
+              <p><%= post.content %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
 </main>
 <%- include('./partials/footer') %> 
 
