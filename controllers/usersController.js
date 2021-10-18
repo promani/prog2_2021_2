@@ -7,7 +7,7 @@ let controller = {
       const posts = await db.Post.findAll({where: {user_id: req.params.username}});
 
       res.render('users/detalle', { user, posts });
-    },
+    }
 }
 
 module.exports = controller;

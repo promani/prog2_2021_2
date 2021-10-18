@@ -1,7 +1,7 @@
 <%- include('./partials/head') %> 
 <!-- Begin page content -->
 <main class="feed">
-  <form action="/" method="GET">
+  <form method="POST">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -12,12 +12,16 @@
       <input type="text" class="form-control" name="username" id="username">
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" id="password">
+      <label for="username" class="form-label">Nombre</label>
+      <input type="text" class="form-control" name="name" id="name">
     </div>
     <div class="mb-3">
-      <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-      <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento">
+      <label for="username" class="form-label">Apellido</label>
+      <input type="text" class="form-control" name="surname" id="surname">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" id="password">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
