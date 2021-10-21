@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const controller = {
     index: function(req, res, next) {
-      db.Post.findAll({order: [['id','DESC']] })
+      db.Post.findAll()
         .then((posts) => {
           res.render('index', { posts });
         })
@@ -19,6 +19,7 @@ const controller = {
           res.send('NO EXISTE EL USUARIO')
         }
         if (bcrypt.compareSync(req.body.password, user.password)) {
+          // Add user to session
           res.redirect('/');
         } else {
           res.send('LA CONSTRASEÑA ES INCORRECTA')

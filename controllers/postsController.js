@@ -46,6 +46,17 @@ const controller = {
         return res.render(error);
       })
     },
+    comment: function(req, res) {
+      db.Comment.create({
+        ...req.body,
+        post_id: req.params.id,
+        user_id: '2'
+      }).then(post => {
+        res.redirect('/posts/'+req.params.id);
+      }).catch(error => {
+        return res.render(error);
+      })
+    },
 }
 
 module.exports = controller;

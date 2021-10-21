@@ -1,4 +1,5 @@
-module.exports = (sequelize, dataTypes) => {
+module.exports= (sequelize,dataTypes)=>{
+
     const alias = 'Post';
 
     const cols = {
@@ -17,15 +18,15 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
     }
-    
+
     const config = {
-        tableName: 'post',
+        tableName:'post',
         timestamps: false,
-        underscored: true
+        underscored: true,
     }
+
+
+    const post = sequelize.define(alias,cols,config)
     
-    const Post = sequelize.define(alias, cols, config)
-
-    return Post
+    return post
 }
-

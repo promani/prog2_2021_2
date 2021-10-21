@@ -7,6 +7,7 @@ router.get('/publish', controller.publish);
 router.post('/publish', controller.store);
 
 router.get('/:id', controller.detalle);
+router.post('/:id', controller.comment);
 
 router.get('/:id/edit', controller.edit);
 router.post('/:id/edit', controller.update);
