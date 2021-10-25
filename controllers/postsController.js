@@ -15,7 +15,8 @@ const controller = {
     },
     store: function(req, res) {
       db.Post.create({
-        content: req.body.content
+        content: req.body.content,
+        user_id: req.session.user.id
       }).then(post => {
         res.redirect('/');
       }).catch(error => {
@@ -47,10 +48,13 @@ const controller = {
       })
     },
     comment: function(req, res) {
+      if (!req.session.user) {
+        res.redirect('/posts/'+req.params.id);
+      }
       db.Comment.create({
         ...req.body,
         post_id: req.params.id,
-        user_id: '2'
+        user_id: req.session.user.id
       }).then(post => {
         res.redirect('/posts/'+req.params.id);
       }).catch(error => {

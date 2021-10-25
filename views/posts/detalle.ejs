@@ -1,4 +1,4 @@
-<%- include('../partials/head-logueado') %> 
+<%- include('../partials/head') %> 
 <!-- Begin page content -->
 <main class="flex-shrink-0">
 <div class="container">
@@ -22,13 +22,15 @@
               <% comments.forEach(comment => { %>
                 <i><a href="/users/detalle/<%= comment.user_id %>"><%= comment.user_id %></i></a> - <%= comment.content %><br>
               <% }) %>
-          <form method="POST">
-            <div class="form-floating">
-              <textarea class="form-control" placeholder="Leave a comment here" name="content" id="content"></textarea>
-              <label for="floatingTextarea">Contenido</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+          <% if (app.user) { %> 
+            <form method="POST">
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" name="content" id="content"></textarea>
+                <label for="floatingTextarea">Contenido</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          <% } %> 
         </div>
       </div>
     </div>
