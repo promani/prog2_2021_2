@@ -14,8 +14,9 @@ const controller = {
       res.render('posts/publish');
     },
     store: function(req, res) {
+      if (req.file) req.body.image = (req.file.destination + req.file.filename).replace('public', '');
       db.Post.create({
-        content: req.body.content,
+        ...req.body,
         user_id: req.session.user.id
       }).then(post => {
         res.redirect('/');

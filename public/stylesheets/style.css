@@ -17,3 +17,9 @@ a {
   height: 260px;
   object-fit: cover;
 }
+
+.form-control-dark {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: var(--bs-gray);
+}

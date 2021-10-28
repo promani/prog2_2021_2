@@ -2,10 +2,10 @@
 <main class="feed">
   <h1>Agregar post</h1>
   <hr>
-  <form method="POST">
+  <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="image" class="form-label">Imagen</label>
-      <input type="file" class="form-control" id="image">
+      <input type="file" class="form-control" name="image" id="image">
     </div>
     <div class="mb-3">
       <div class="form-floating">
