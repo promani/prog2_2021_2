@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const controller = {
     index: function(req, res, next) {
-      db.Post.findAll()
+      db.Post.findAll({ include: [{ association: 'author' }] })
         .then((posts) => {
           res.render('index', { posts });
         })

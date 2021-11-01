@@ -2,11 +2,18 @@ const db = require('../database/models');
 
 const controller = {
     detalle: async function(req, res) {
-        const post = await db.Post.findByPk(req.params.id)
+        const post = await db.Post.findByPk(req.params.id,
+          { include: [{ association: 'comments' }] }
+        )
         if (!post) {
           return res.render('error');
         }
-        const comments = await db.Comment.findAll({ where: { post_id: req.params.id } })
+        const comments = await db.Comment.findAll(
+          { 
+            where: { post_id: req.params.id }, 
+            include: [{ association: 'author' }] 
+          }
+        )
 
         res.render('posts/detalle', { post, comments });
     },

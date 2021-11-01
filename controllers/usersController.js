@@ -3,10 +3,21 @@ const op = db.Sequelize.Op;
 
 let controller = {
     detalle: async function(req, res) {
-      const user = await db.User.findByPk(req.params.username);
-      const posts = await db.Post.findAll({where: {user_id: req.params.username}});
+      const user = await db.User.findByPk(req.params.id, {
+        include: [{association: 'posts'}]
+      });
 
-      res.render('users/detalle', { user, posts });
+      res.render('users/detalle', { user });
+    },
+    profile: async function(req, res) {
+      if (!req.session.user) {
+        res.send('NO ESTAS LOGUEADO')
+      }
+      const user = await db.User.findByPk(req.session.user.id, {
+        include: [{association: 'posts'}]
+      });
+
+      res.render('users/detalle', { user });
     }
 }
 

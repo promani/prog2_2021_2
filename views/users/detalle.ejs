@@ -5,7 +5,7 @@
   <h1><%= user.username %></h1>
   <hr>
   <div class="row">
-      <% posts.forEach(post => { %>
+      <% user.posts.forEach(post => { %>
         <div class="col-3">
           <div class="card mb-3">
             <img src="<%= post.image %>" class="card-img-top" alt="...">

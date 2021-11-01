@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <p><a href="/users/detalle/<%= post.user_id %>"><%= post.user_id %></a></p>
+            <p><a href="/users/detalle/<%= post.author.id %>"><%= post.author.name %> <%= post.author.surname %></a></p>
             <p></p>
             <p><%= post.content %></p>
           </div>
