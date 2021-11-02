@@ -1,6 +1,13 @@
 <%- include('./partials/head') %> 
 <!-- Begin page content -->
 <main class="feed">
+  <% if (locals.errors) { %>
+    <% errors.forEach(error => { %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %> 
+      </div>
+    <% }) %>
+  <% } %>
   <form method="POST">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -9,19 +16,19 @@
     </div>
     <div class="mb-3">
       <label for="username" class="form-label">Nombre de usuario</label>
-      <input type="text" class="form-control" name="username" id="username">
+      <input type="text" class="form-control" name="username" id="username" required>
     </div>
     <div class="mb-3">
       <label for="username" class="form-label">Nombre</label>
-      <input type="text" class="form-control" name="name" id="name">
+      <input type="text" class="form-control" name="name" id="name" required>
     </div>
     <div class="mb-3">
       <label for="username" class="form-label">Apellido</label>
-      <input type="text" class="form-control" name="surname" id="surname">
+      <input type="text" class="form-control" name="surname" id="surname" required>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" id="password">
+      <input type="password" class="form-control" name="password" id="password" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

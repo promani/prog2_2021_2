@@ -2,9 +2,24 @@ const db = require('../database/models');
 const op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 
+const validateUser = function (req) {
+  const errors = [];
+  if (req.body.password.length < 5) {
+    errors.push('LA CONSTRASEÑA ES INSEGURA');
+  }
+  if (!req.body.surname) {
+    errors.push('EL APELLIDO ES REQUERIDO');
+  }
+  return errors;
+}
+
 const controller = {
     index: function(req, res, next) {
-      db.Post.findAll({ include: [{ association: 'author' }] })
+      db.Post.findAll({ 
+        include: [
+          { association: 'author' },
+          { association: 'comments', include: [{ association: 'author' }] }
+        ]})
         .then((posts) => {
           res.render('index', { posts });
         })
@@ -38,6 +53,10 @@ const controller = {
       res.render('register');
     },
     store: async function(req, res) {
+      const errors = validateUser(req);
+      if (errors.length > 0) {
+        return res.render('register', { errors });
+      }
       req.body.password = bcrypt.hashSync(req.body.password, 10);
       db.User.create(req.body)
         .then(post => {

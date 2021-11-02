@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 
 var app = express();
-// db.sequelize.sync();
+// db.sequelize.sync({alter:true});
 
 app.use(
   session({

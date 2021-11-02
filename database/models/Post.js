@@ -16,7 +16,7 @@ module.exports= (sequelize,dataTypes)=>{
         },
         image: {
             type: dataTypes.STRING
-        },
+        }
     }
 
     const config = {
