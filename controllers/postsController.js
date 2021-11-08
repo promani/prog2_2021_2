@@ -5,6 +5,7 @@ const controller = {
         const post = await db.Post.findByPk(req.params.id,{ 
           include: [
             { association: 'author' },
+            { association: 'likes' },
             { association: 'comments', include: [{ association: 'author' }] }
           ]}
         )
@@ -61,6 +62,32 @@ const controller = {
         post_id: req.params.id,
         user_id: req.session.user.id
       }).then(post => {
+        res.redirect('/posts/'+req.params.id);
+      }).catch(error => {
+        return res.render(error);
+      })
+    },
+    like: function(req, res) {
+      if (!req.session.user) {
+        res.redirect('/posts/'+req.params.id);
+      }
+      db.Like.create({
+        user_id: req.session.user.id,
+        post_id: req.params.id 
+      }).then(like => {
+        res.redirect('/posts/'+req.params.id);
+      }).catch(error => {
+        return res.send(error);
+      })
+    },
+    dislike: function(req, res) {
+      if (!req.session.user) {
+        res.redirect('/posts/'+req.params.id);
+      }
+      db.Like.destroy(
+        { where: { user_id: req.session.user.id, post_id: req.params.id }
+      })
+      .then(() => {
         res.redirect('/posts/'+req.params.id);
       }).catch(error => {
         return res.render(error);

@@ -18,6 +18,7 @@ const controller = {
       db.Post.findAll({ 
         include: [
           { association: 'author' },
+          { association: 'likes' },
           { association: 'comments', include: [{ association: 'author' }] }
         ]})
         .then((posts) => {
@@ -76,6 +77,32 @@ const controller = {
 
       // []
       res.render('search', { posts, criteria: req.query.criteria });
+    },
+    like: function(req, res) {
+      if (!req.session.user) {
+        res.redirect('/posts/'+req.params.id);
+      }
+      db.Like.create({
+        user_id: req.session.user.id,
+        post_id: req.params.id 
+      }).then(like => {
+        res.redirect('/#post_'+req.params.id);
+      }).catch(error => {
+        return res.send(error);
+      })
+    },
+    dislike: function(req, res) {
+      if (!req.session.user) {
+        res.redirect('/posts/'+req.params.id);
+      }
+      db.Like.destroy(
+        { where: { user_id: req.session.user.id, post_id: req.params.id }
+      })
+      .then(() => {
+        res.redirect('/#post_'+req.params.id);
+      }).catch(error => {
+        return res.render(error);
+      })
     },
 }
 

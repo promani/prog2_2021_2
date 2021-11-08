@@ -2,15 +2,28 @@
 <!-- Begin page content -->
 <main class="flex-shrink-0">
 <div class="container">
+  <% if (user.id != app.user.id) { %>
+    <div class="float-end">
+      <% if (user.followers.find(follow => follow.follower_id == app.user.id)) { %>
+        <a href="/users/<%= user.id %>/unfollow" class="btn btn-danger">Unfollow</a>
+      <% } else { %>
+        <a href="/users/<%= user.id %>/follow" class="btn btn-primary">Follow</a>
+      <% } %>
+    </div>
+  <% } %>
   <h1><%= user.username %></h1>
   <hr>
+  <div class="text-center">
+    <h4>Siguiendo: <%= user.following.length %> - Seguidores: <%= user.followers.length %></h4>
+  </div>
+  <br>
   <div class="row">
       <% user.posts.forEach(post => { %>
         <div class="col-3">
           <div class="card mb-3">
             <img src="<%= post.image %>" class="card-img-top" alt="...">
             <div class="card-body">
-              <p><a href="/users/detalle/<%= user.id %>"><%= user.username %></a></p>
+              <p><a href="/users/<%= user.id %>"><%= user.username %></a></p>
               <p><%= post.contenido %></p>
               <a href="/posts/<%= post.id %>" class="btn btn-primary">Go somewhere</a>
             </div>
