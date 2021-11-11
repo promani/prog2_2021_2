@@ -20,7 +20,7 @@ const controller = {
           { association: 'author' },
           { association: 'likes' },
           { association: 'comments', include: [{ association: 'author' }] }
-        ]})
+        ], order: [['id','desc']]})
         .then((posts) => {
           res.render('index', { posts });
         })
@@ -69,8 +69,7 @@ const controller = {
     search: async function(req, res, next) {
       const posts = await db.Post.findAll({ where: {
         [op.or]: [
-          { content: { [op.like]: "%"+req.query.criteria+"%"} },
-          { image: { [op.like]: "%"+req.query.criteria+"%"} },
+          { content: { [op.like]: "%"+req.query.criteria+"%"} }
         ]
         }}
       )

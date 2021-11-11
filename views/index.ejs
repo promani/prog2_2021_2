@@ -14,6 +14,11 @@
           <% } else { %>
             <a href="/feed/<%= post.id %>/like" class="btn btn-primary">Like</a>
           <% } %>
+          <% if (post.user_id == app.user.id) { %>
+            <form action="/posts/<%= post.id %>/delete" method="POST">
+              <button type="submit" class="btn btn-danger">Borrar</button>
+            </form>
+          <% } %>
         </div>
         <p class="card-text"><%= post.content %></p>
         <hr>

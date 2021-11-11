@@ -50,7 +50,7 @@ const controller = {
       .then(() => {
         res.redirect('/');
       }).catch(error => {
-        return res.render(error);
+        return res.send(error);
       })
     },
     comment: function(req, res) {

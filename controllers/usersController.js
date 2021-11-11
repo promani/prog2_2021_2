@@ -4,7 +4,8 @@ const op = db.Sequelize.Op;
 let controller = {
     detalle: async function(req, res) {
       const user = await db.User.findByPk(req.params.id, {
-        include: [{all: true}]
+        include: [{all: true}],
+        order: [['posts','id','desc']]
       });
 
       res.render('users/detalle', { user });
